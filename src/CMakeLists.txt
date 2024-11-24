@@ -36,7 +36,7 @@ target_include_directories(${PROJECT_NAME}
                            ${CMAKE_CURRENT_SOURCE_DIR}
                            )
 
-target_link_libraries(${PROJECT_NAME} PRIVATE opengl32 gdi32)
+target_link_libraries(${PROJECT_NAME} PRIVATE opengl32 glu32 gdi32)
 # Copy the header files to the build directory for convenience
 file(COPY ${lily_headers} DESTINATION "include")
 

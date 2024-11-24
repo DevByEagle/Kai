@@ -40,19 +40,24 @@
     typedef enum bool { false = 0, true = !false } bool;
 #endif
 
-typedef struct {
-   unsigned char r;        // Red Color Value
-   unsigned char g;        // Grean Color Value
-   unsigned char b;        // Blue Color Value
-   unsigned char a;        // Alpha Value
+typedef struct Color {
+   unsigned char r;
+   unsigned char g;
+   unsigned char b;
+   unsigned char a;
 } Color;
-
-// Window and Graphics Device Functions (Module: core)
 
 #if defined(__cplusplus)
 extern "C" {
 #endif
 
+// Window-related functions
+LYAPI void InitializeWindow(int width, int height, const char* title);
+LYAPI void CloseWindow(void);
+LYAPI bool WindowShouldClose(void);
+
+//LYAPI void printx(const char* text, float x, float y);
+LYAPI void SetBackground(Color color);
 
 #if defined(__cplusplus)
 }

@@ -1,5 +1,20 @@
 #include "src/core.c"
+#include <stdio.h>
 
 int main(void) {
-    lilyCreateWindow("Test", 800, 600);
+    int Width = 800;
+    int Height = 600;
+    Color color = {0, 150, 255, 255};
+
+    InitializeWindow(Width, Height, "Test Window");
+    
+    while (!WindowShouldClose()) {
+        // Render here (if needed)
+        SetBackground(color);
+
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
+
+    CloseWindow();
 }
