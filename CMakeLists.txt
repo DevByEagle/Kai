@@ -18,10 +18,5 @@ include(CMakeOptions.txt)
 # Add source files for synth in the src directory
 add_subdirectory(src lily)
 
-if (${BUILD_EXAMPLES})
-  MESSAGE(STATUS "Building examples is enabled")
-  add_subdirectory(examples)
-endif()
-
 # Enable testing for the project
 enable_testing()

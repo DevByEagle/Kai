@@ -1,5 +1,4 @@
 # Configuration options
 include(CMakeDependentOption)
 
-option(BUILD_EXAMPLES "Build the examples." OFF)
-option(BUILD_SHARED_LIBS "Build UIX as a shared library" OFF)
+option(BUILD_SHARED_LIBS "Build Lily as a shared library" OFF)

@@ -15,27 +15,34 @@ void InitializeWindow(int width, int height, const char *title)
     window = glfwCreateWindow(width, height, title, NULL, NULL);
     if (!window) {
         fprintf(stderr, "Failed to create GLFW window\n");
-        glfwTerminate();
+        EndWindow();
         exit(EXIT_FAILURE);
     }
 
     glfwMakeContextCurrent(window);
-    glfwSwapInterval(1);   
 }
 
-void CloseWindow(void) {
+void ExitWindow(void) {
     glfwDestroyWindow(window);
     glfwTerminate();
 }
 
-bool WindowShouldClose(void) {
+bool ShouldClose(void) {
     if (glfwWindowShouldClose(window)) {
         return true;
     }
     return false;
 } 
 
-void SetBackground(Color color) {
-    glClearColor(color.r, color.g, color.b, color.a);
-    glClear(GL_COLOR_BUFFER_BIT);        
+void BeginDraw(void) {
+    glfwSwapBuffers(window);
+    glfwPollEvents();
+}
+
+void ApplyBackground(Color color) {
+    glClearColor(color.r, color.g, color.b, color.a);        
+}
+
+void EndDraw(void) {
+    glClear(GL_COLOR_BUFFER_BIT);
 }
