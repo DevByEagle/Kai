@@ -17,20 +17,29 @@ Lily is a lightweight C UI library for sleek, cross-platform interfaces.
 
 ## 🚀 Installation
 
+### Option 1: Using Git and Building from Source
+
 1. Clone the repository:
    ```bash
    git clone https://github.com/DevByEagle/Lily.git
    ```
+
 2. Navigate to the project directory:
    ```bash
    cd Lily
    ```
-3. Building the libaray:
+3. Build the library:
    ```bash
    mkdir build
    cd build
    cmake ..
    ```
+### Option 2: Using Prebuilt Binaries
+Alternatively, you can download prebuilt binaries for your platform:
+
+1. Go to the [Releases page](https://github.com/DevByEagle/Lily/releases).
+2. Download the appropriate prebuilt binary for your platform.
+3. Extract the binary and link the library to your project.
 
 ## 💡 Example
 Here’s how you can use **Lily**:
