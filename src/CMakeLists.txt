@@ -1,13 +1,9 @@
-project(lily VERSION 1.0.0 LANGUAGES CXX)
-
-set(lily_headers
-    lily.h
-    string.h
-    )
+project(kargo VERSION 1.0.0 LANGUAGES CXX)
 
 file(GLOB SOURCES "*.cpp")
+file(GLOB HEADERS "*.h")
 
-add_library(${PROJECT_NAME} ${SOURCES} ${lily_headers})
+add_library(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
 if (NOT BUILD_SHARED_LIBS)
     MESSAGE(STATUS "Building ${PROJECT_NAME} static library")
@@ -24,7 +20,7 @@ else()
 endif()
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
-                      PUBLIC_HEADER "${lily_headers}"
+                      PUBLIC_HEADER "${HEADERS}"
                       VERSION ${PROJECT_VERSION}
                       )
 
@@ -38,7 +34,7 @@ target_include_directories(${PROJECT_NAME}
                            )
                     
 # Copy the header files to the build directory for convenience
-file(COPY ${lily_headers} DESTINATION "include")
+file(COPY ${HEADERS} DESTINATION "include")
 
 # Includes information on how the library will be installed on the system
 # when cmake --install is run
