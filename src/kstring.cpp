@@ -1,4 +1,5 @@
 #include <cstring>
+#include <stdexcept>
 #include "kstring.h"
 
 namespace Kargo
@@ -9,6 +10,14 @@ namespace Kargo
         BaseString<CharT>::BaseString(const CharT *initial)
         {
             copyFrom(initial);
+        }
+
+        template <typename CharT>
+        BaseString<CharT>::BaseString(const CharT* buffer, size_t len) {
+            length = len;
+            data = new CharT[length + 1];
+            std::memcpy(data, buffer, len * sizeof(CharT));
+            data[length] = '\0';
         }
 
         template <typename CharT>
@@ -26,6 +35,14 @@ namespace Kargo
                 copyFrom(other.data);
             }
             return *this;
+        }
+
+        template <typename CharT>
+        CharT& BaseString<CharT>::operator[](size_t index) {
+            if (index >= length) {
+                throw std::out_of_range("Index out of bounds");
+            }
+            return data[index];
         }
 
         template <typename CharT>
