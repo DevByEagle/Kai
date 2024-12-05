@@ -1,9 +1,9 @@
-#include "src/kstring.h"
-#include "src/kstring.cpp"
-
 #include <iostream>
 
+#include "src/kargo.h"
+#include "src/kcore.cpp"
+
 int main(void) {
-    Kargo::String str("Hello, World");
-    
+    Kargo::String message = "Hello, World!";
+    Kargo::Path* path = Kargo::LoadPath("example.txt", "w");
 }
