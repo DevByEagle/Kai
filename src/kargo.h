@@ -8,10 +8,10 @@
 namespace Kargo
 {
     // Type Define
-    typedef struct {
+    struct Path {
         FILE* stream;       // Underlying file stream (or any other custom data type)
         const char* filename;     // Name of the file
-    } Path;
+    };
     // Function Define
     Path* LoadPath(const String& filename, const String& mode);
     // Class Define
