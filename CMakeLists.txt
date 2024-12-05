@@ -1,10 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(lily)
 
-# Makes a hidden visibility preset on a static lib respected
-# This is used to hide glfw's symbols from the library exports when building an so/dylib
-# See https://cmake.org/cmake/help/latest/policy/CMP0063.html
-cmake_policy(SET CMP0063 NEW)
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 # Include directory for modular CMake scripts
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
@@ -15,7 +12,7 @@ include(CompilerFlags)
 # Load build options from a configuration file
 include(CMakeOptions.txt)
 
-# Add source files for synth in the src directory
+# Add source files for lily in the src directory
 add_subdirectory(src lily)
 
 # Enable testing for the project

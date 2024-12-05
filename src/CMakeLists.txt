@@ -1,10 +1,11 @@
-project(lily VERSION 1.0.0 LANGUAGES C)
+project(lily VERSION 1.0.0 LANGUAGES CXX)
 
 set(lily_headers
     lily.h
+    string.h
     )
 
-file(GLOB SOURCES "*.c")
+file(GLOB SOURCES "*.cpp")
 
 add_library(${PROJECT_NAME} ${SOURCES} ${lily_headers})
 
@@ -35,8 +36,7 @@ target_include_directories(${PROJECT_NAME}
                            PRIVATE
                            ${CMAKE_CURRENT_SOURCE_DIR}
                            )
-
-target_link_libraries(${PROJECT_NAME} PRIVATE opengl32)
+                    
 # Copy the header files to the build directory for convenience
 file(COPY ${lily_headers} DESTINATION "include")
 

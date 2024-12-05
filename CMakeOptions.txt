@@ -1,4 +1,2 @@
-# Configuration options
-include(CMakeDependentOption)
-
-option(BUILD_SHARED_LIBS "Build Lily as a shared library" OFF)
+# Build options
+option(BUILD_SHARED_LIBS "Build ${PROJECT_NAME} as a shared library" OFF)
